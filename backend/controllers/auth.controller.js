@@ -11,7 +11,6 @@ export const signup = async (req,res)=>{
             throw new Error("All fields are required")
         }
         const userAlreadyExists = await User.findOne({email});
-        console.log("userAlreadyExists",userAlreadyExists);
 
         if(userAlreadyExists){
             return res.status(400).json({success:false, message: "user Already Exists"})
